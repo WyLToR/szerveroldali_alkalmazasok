@@ -1,4 +1,8 @@
+using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("szerveroldali_szolgContext") ?? throw new InvalidOperationException("Connection string 'szerveroldali_szolgContext' not found.");
+
+builder.Services.AddDbContext<szerveroldali_szolgContext>(options => options.UseSqlServer(connectionString));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
