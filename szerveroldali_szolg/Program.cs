@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using szerveroldali_szolg.Models;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("szerveroldali_szolgContext") ?? throw new InvalidOperationException("Connection string 'szerveroldali_szolgContext' not found.");
 
@@ -8,7 +9,12 @@ builder.Services.AddDbContext<szerveroldali_szolgContext>(options => options.Use
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
 
+    SeedData.Initialize(services);
+}
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
