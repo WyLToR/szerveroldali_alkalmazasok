@@ -29,6 +29,7 @@ namespace szerveroldali_szolg.Models
                         Title = "Ghostbusters ",
                         ReleaseDate = DateTime.Parse("1984-3-13"),
                         Genre = "Comedy",
+                        Rating = "PG",
                         Price = 8.99M
                     },
                     new Movie
@@ -36,6 +37,7 @@ namespace szerveroldali_szolg.Models
                         Title = "Ghostbusters 2",
                         ReleaseDate = DateTime.Parse("1986-2-23"),
                         Genre = "Comedy",
+                        Rating = "R",
                         Price = 9.99M
                     },
                     new Movie
@@ -43,7 +45,8 @@ namespace szerveroldali_szolg.Models
                         Title = "Rio Bravo",
                         ReleaseDate = DateTime.Parse("1959-4-15"),
                         Genre = "Western",
-                        Price = 3.99M
+                        Price = 3.99M,
+                        Rating = "18",
                     }
                 );
                 context.SaveChanges();
